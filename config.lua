@@ -1,0 +1,2 @@
+scriptPath="./script/"
+logPath="./log/"

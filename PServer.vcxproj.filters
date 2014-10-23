@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="type_define.h" />
+    <ClInclude Include="plua.h" />
+    <ClInclude Include="const_define.h" />
+    <ClInclude Include="plog.h" />
+    <ClInclude Include="log_manager.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="macro_define.h" />
+    <ClInclude Include="script_test.h" />
+    <ClInclude Include="swig_wrap.h" />
+    <ClInclude Include="luatest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="plua.cpp" />
+    <ClCompile Include="const_define.cpp" />
+    <ClCompile Include="plog.cpp" />
+    <ClCompile Include="log_manager.cpp" />
+    <ClCompile Include="config.cpp" />
+    <ClCompile Include="swig_wrap.cpp" />
+    <ClCompile Include="luatest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.sh" />
+    <None Include="swig_wrap.i" />
+    <None Include="makefile" />
+    <None Include="config.lua" />
+  </ItemGroup>
+</Project>
