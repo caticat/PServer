@@ -1783,22 +1783,6 @@ static swig_lua_class *swig_std_string_bases[] = {0};
 static const char *swig_std_string_base_names[] = {0};
 static swig_lua_class _wrap_class_std_string = { "string", &SWIGTYPE_p_std__string,_wrap_new_string, swig_delete_string, swig_std_string_methods, swig_std_string_attributes, swig_std_string_bases, swig_std_string_base_names };
 
-static int _wrap_ScriptTest(lua_State* L) {
-  int SWIG_arg = 0;
-  
-  SWIG_check_num_args("ScriptTest",0,0)
-  ScriptTest();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_CScriptTest_m_id_set(lua_State* L) {
   int SWIG_arg = 0;
   CScriptTest *arg1 = (CScriptTest *) 0 ;
@@ -1987,7 +1971,6 @@ static swig_lua_class _wrap_class_CScriptTest = { "CScriptTest", &SWIGTYPE_p_CSc
 #endif
 
 static const struct luaL_reg swig_commands[] = {
-    { "ScriptTest", _wrap_ScriptTest},
     {0,0}
 };
 

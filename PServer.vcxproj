@@ -19,6 +19,7 @@
     <ClInclude Include="plog.h" />
     <ClInclude Include="plua.h" />
     <ClInclude Include="script_test.h" />
+    <ClInclude Include="sql_manager.h" />
     <ClInclude Include="swig_wrap.h" />
     <ClInclude Include="type_define.h" />
   </ItemGroup>
@@ -30,6 +31,7 @@
     <ClCompile Include="plog.cpp" />
     <ClCompile Include="plua.cpp" />
     <ClCompile Include="luatest.cpp" />
+    <ClCompile Include="sql_manager.cpp" />
     <ClCompile Include="swig_wrap.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +39,9 @@
     <None Include="config.lua" />
     <None Include="makefile" />
     <None Include="swig_wrap.i" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{67F97F95-9D94-4D63-9330-FA0F53E2AC1C}</ProjectGuid>

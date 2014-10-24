@@ -46,9 +46,9 @@ bool CPLog::init(const string& path, const string& prifix, const char* fileType,
 	}
 
 	string command = "cd " + path; // 创建路径文件夹
-	if (system(command.c_str()) != 0)
+	if (access(command.c_str(),F_OK) != 0) // 文件夹不存在
 	{
-		command = "mkdir " + path; // 创建路径文件夹
+		command = "mkdir -p " + path; // 创建路径文件夹
 		system(command.c_str());
 	}
 

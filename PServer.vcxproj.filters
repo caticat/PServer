@@ -11,6 +11,7 @@
     <ClInclude Include="script_test.h" />
     <ClInclude Include="swig_wrap.h" />
     <ClInclude Include="luatest.h" />
+    <ClInclude Include="sql_manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -21,11 +22,15 @@
     <ClCompile Include="config.cpp" />
     <ClCompile Include="swig_wrap.cpp" />
     <ClCompile Include="luatest.cpp" />
+    <ClCompile Include="sql_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />
     <None Include="swig_wrap.i" />
     <None Include="makefile" />
     <None Include="config.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
 </Project>

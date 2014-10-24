@@ -19,7 +19,9 @@ CPPFILES=	main.cpp \
 			plua.cpp \
 			config.cpp \
 			swig_wrap.cpp \
-			luatest.cpp
+			luatest.cpp \
+			sql_manager.cpp \
+			psignal.cpp
 
 $(NAME):$(CPPFILES:.cpp=.o)
 	$(LINK) -o $(NAME) $(CPPFILES:.cpp=.o) $(LINKOPTS)

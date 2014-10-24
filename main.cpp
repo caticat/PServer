@@ -1,9 +1,11 @@
 #include "type_define.h"
-
 #include "config.h"
-#include <iostream>
-#include "log_manager.h"
 
+#include <iostream>
+
+#include "psignal.h"
+
+bool g_isRunning = true;
 int main()
 {
 	if (!Config::getInstance()->load()) // 加载配置文件
@@ -12,6 +14,13 @@ int main()
 		return 0;
 	}
 
+	PSignal::getInstance()->Regist();
+	int idx = 0;
+	while (g_isRunning)
+	{
+		std::cout << "输出测试" << idx++ << std::endl;
+		sleep(2);
+	}
 
 	return 0;
 }
