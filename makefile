@@ -21,7 +21,10 @@ CPPFILES=	main.cpp \
 			swig_wrap.cpp \
 			luatest.cpp \
 			sql_manager.cpp \
-			psignal.cpp
+			psignal.cpp \
+			time_manager.cpp \
+			event_manager.cpp \
+			pevent.cpp
 
 $(NAME):$(CPPFILES:.cpp=.o)
 	$(LINK) -o $(NAME) $(CPPFILES:.cpp=.o) $(LINKOPTS)

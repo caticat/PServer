@@ -1,4 +1,9 @@
 //#pragma once
+
+/*
+	测试脚本导出接口头文件
+*/
+
 #include <string>
 
 //void test();

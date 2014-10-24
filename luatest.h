@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+	测试脚本功能用cpp类
+*/
+
 #include <iostream>
 #include <string>
 

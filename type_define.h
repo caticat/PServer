@@ -1,10 +1,10 @@
 #pragma once
 
-#include <boost/shared_ptr.hpp>
-
 /*
-	类型定义
+类型定义
 */
+
+#include <boost/shared_ptr.hpp>
 
 typedef unsigned char uint8;
 typedef char int8;

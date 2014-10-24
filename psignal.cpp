@@ -33,11 +33,9 @@ void PSignal::Regist()
 	sigaction(SIGRTMIN, &sig, NULL);
 }
 
-extern bool g_isRunning;
 void PSignal::SignalHandler(int signal)
 {
 	LogManager::getInstance()->Log("signal catched:%d", signal);
-	g_isRunning = false;
 }
 
 void PSignal::SignalHandlerWithCore(int signal)

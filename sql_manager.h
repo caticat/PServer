@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+	sql”Ôæ‰π‹¿Ì
+*/
+
 #include "macro_define.h"
 #include <boost/format.hpp>
 

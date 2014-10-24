@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+	配置文件对应类
+*/
+
 #include "type_define.h"
 #include "macro_define.h"
 #include <string>

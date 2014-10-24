@@ -5,13 +5,91 @@ ________________________________________________________________________________
 目前的问题：
 网络
 线程
-结束信号处理
 数据库连接
-事件系统
-时间
 _______________________________________________________________________________________________________________________________
 
 config.lua 配置文件，和程序同级目录
+_______________________________________________________________________________________________________________________________
+
+事件系统示例测试代码
+
+#include "event_manager.h"
+#include "pevent.h"
+#include <boost/bind.hpp>
+using namespace std;
+void Eve1(const PEvent& eve)
+{
+	cout << "1" << endl;
+}
+
+void Eve2(const PEvent& eve)
+{
+	cout << "2" << endl;
+}
+
+void Eve3(const PEvent& eve)
+{
+	PEvent2 eve2 = (const PEvent2&)eve;
+	cout << "3:" << eve2.data << endl;
+}
+
+class EveTest
+{
+public:
+	void Eve4(const PEvent& eve)
+	{
+		PEvent2 eve2 = (const PEvent2&)eve;
+		cout << "4:" << eve2.data << endl;
+	}
+};
+
+int main()
+{
+	EventManager* pEveMgr = EventManager::getInstance();
+	pEveMgr->Push(Eve_Test, boost::bind(&Eve1,_1));
+	pEveMgr->Push(Eve_Test1, boost::bind(&Eve2, _1));
+	pEveMgr->Push(Eve_Test1, boost::bind(&Eve3, _1));
+
+	EveTest eveTest;
+	pEveMgr->Push(Eve_Test1, boost::bind(&EveTest::Eve4,&eveTest,_1));
+
+	PEvent eve(Eve_Test);
+	pEveMgr->Launch(eve);
+	PEvent2 eve2(Eve_Test1);
+	eve2.data = 100;
+	pEveMgr->Launch(eve2);
+	pEveMgr->Pop(Eve_Test1, boost::bind(&EveTest::Eve4, &eveTest, _1));
+	pEveMgr->Launch(eve2);
+	return 0;
+}
+
+_______________________________________________________________________________________________________________________________
+
+时间功能示例：
+
+while (true)
+{
+	TimeManager::getInstance()->Sync();
+	std::cout << "当前时间：" << TimeManager::getInstance()->GetTime() << std::endl;
+	sleep(1);
+}
+_______________________________________________________________________________________________________________________________
+
+信号处理示例：
+
+#include "psignal.h"
+bool g_isRunning = true;
+int main()
+{
+	PSignal::getInstance()->Regist();
+	int idx = 0;
+	while (g_isRunning)
+	{
+		std::cout << "输出测试" << idx++ << std::endl;
+		sleep(2);
+	}
+	return 0;
+}
 _______________________________________________________________________________________________________________________________
 
 sql语句获取

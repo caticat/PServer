@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+	∫Í∂®“Â
+*/
+
 #ifndef NULL
 #define NULL 0
 #endif

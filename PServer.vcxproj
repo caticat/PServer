@@ -16,8 +16,12 @@
     <ClInclude Include="log_manager.h" />
     <ClInclude Include="luatest.h" />
     <ClInclude Include="macro_define.h" />
+    <ClInclude Include="event_manager.h" />
+    <ClInclude Include="pevent.h" />
     <ClInclude Include="plog.h" />
     <ClInclude Include="plua.h" />
+    <ClInclude Include="psignal.h" />
+    <ClInclude Include="time_manager.h" />
     <ClInclude Include="script_test.h" />
     <ClInclude Include="sql_manager.h" />
     <ClInclude Include="swig_wrap.h" />
@@ -28,9 +32,13 @@
     <ClCompile Include="const_define.cpp" />
     <ClCompile Include="log_manager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="event_manager.cpp" />
+    <ClCompile Include="pevent.cpp" />
     <ClCompile Include="plog.cpp" />
     <ClCompile Include="plua.cpp" />
     <ClCompile Include="luatest.cpp" />
+    <ClCompile Include="psignal.cpp" />
+    <ClCompile Include="time_manager.cpp" />
     <ClCompile Include="sql_manager.cpp" />
     <ClCompile Include="swig_wrap.cpp" />
   </ItemGroup>

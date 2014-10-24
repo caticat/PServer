@@ -12,6 +12,10 @@
     <ClInclude Include="swig_wrap.h" />
     <ClInclude Include="luatest.h" />
     <ClInclude Include="sql_manager.h" />
+    <ClInclude Include="psignal.h" />
+    <ClInclude Include="time_manager.h" />
+    <ClInclude Include="event_manager.h" />
+    <ClInclude Include="pevent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -23,6 +27,10 @@
     <ClCompile Include="swig_wrap.cpp" />
     <ClCompile Include="luatest.cpp" />
     <ClCompile Include="sql_manager.cpp" />
+    <ClCompile Include="psignal.cpp" />
+    <ClCompile Include="time_manager.cpp" />
+    <ClCompile Include="event_manager.cpp" />
+    <ClCompile Include="pevent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />

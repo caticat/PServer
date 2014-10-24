@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+	信号处理类
+*/
+
 #include "macro_define.h"
 
 class PSignal
