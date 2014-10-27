@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="const_define.h" />
+    <ClInclude Include="db.h" />
     <ClInclude Include="log_manager.h" />
     <ClInclude Include="luatest.h" />
     <ClInclude Include="macro_define.h" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <ClCompile Include="config.cpp" />
     <ClCompile Include="const_define.cpp" />
+    <ClCompile Include="db.cpp" />
     <ClCompile Include="log_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="event_manager.cpp" />
@@ -85,7 +87,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Lua\5.1\include;D:\pan\lib\boost\boost_1_49_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Lua\5.1\include;D:\pan\lib\boost\boost_1_49_0;D:\pan\lib\mysql-5.5.8\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

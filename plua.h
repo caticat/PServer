@@ -16,6 +16,7 @@ public:
 
 	void Call(const char* func, const char* fmt, ...); // 函数调用
 	void GetVal(const char* key, std::string& value); // 获取一个值
+	//void GetVal(std::string& value, const) // 获取多层的数据功能未完成
 
 	void Reload(); // 重新加载
 

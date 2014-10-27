@@ -49,7 +49,7 @@ public:
 		mapPair.first->second.push_back(eveFunc);
 	}
 
-	void Pop(EventType type, eveFunc_t eveFunc = NULL)
+	void Pop(EventType type, eveFunc_t eveFunc = NULL) // 删除函数使用注意下面注释说明，很容易理解错了
 	{
 		eveMapIt_t mapIt = m_eveMap.begin();
 		for (; mapIt != m_eveMap.end(); ++mapIt)

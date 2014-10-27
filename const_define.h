@@ -16,3 +16,7 @@ enum LOG_DEF
 	LOG_ERROR = 2, // 错误
 	LOG_NUM = 3, // 日志类型数
 };
+
+// 数据库连接
+extern const int DB_CONN_TIMEOUT; // 连接超时时间
+extern const int DB_RECV_TIMEOUT; // 返回超时时间

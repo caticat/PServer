@@ -16,6 +16,7 @@
     <ClInclude Include="time_manager.h" />
     <ClInclude Include="event_manager.h" />
     <ClInclude Include="pevent.h" />
+    <ClInclude Include="db.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="time_manager.cpp" />
     <ClCompile Include="event_manager.cpp" />
     <ClCompile Include="pevent.cpp" />
+    <ClCompile Include="db.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />

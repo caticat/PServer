@@ -36,3 +36,20 @@ SINGTONE_GETINSTANCE(T)
 			LogManager::getInstance()->Err("lua call func:%s error.", func);\
 		break;\
 	}
+
+/*
+释放指针
+*/
+#define RELEASE(p) {if(p!=NULL){delete p;p=NULL;}}
+
+/*
+数据库连接创建
+*/
+#define GETDB \
+DbConnection dbConn;\
+DB* pDb = dbConn.GetDbConnection();\
+if (pDb == NULL)\
+{\
+	LogManager::getInstance()->Err("获取连接数据库出错"); \
+	return;\
+}

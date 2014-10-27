@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+
 int main()
 {
 	if (!Config::getInstance()->load()) // ╪стьеДжцнд╪Ч

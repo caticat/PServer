@@ -6,7 +6,11 @@ CC=gcc
 CCFLAGS+=-g
 CCFLAGS+=-Wall
 CCFLAGS+=-I/usr/local/include/boost-1_52
+CCFLAGS+=-I/usr/include/mysql
 
+#LINKOPTS+=-L/usr/lib/mysql
+LINKOPTS+=-lmysqlclient
+LINKOPTS+=-lboost_system
 LINKOPTS+=-llua
 LINKOPTS+=-ldl #lua链接报错处理
 #LINKOPTS+=-fPIC #动态库编译
@@ -24,7 +28,9 @@ CPPFILES=	main.cpp \
 			psignal.cpp \
 			time_manager.cpp \
 			event_manager.cpp \
-			pevent.cpp
+			pevent.cpp \
+			db.cpp \
+			db_manager.cpp
 
 $(NAME):$(CPPFILES:.cpp=.o)
 	$(LINK) -o $(NAME) $(CPPFILES:.cpp=.o) $(LINKOPTS)
@@ -33,4 +39,4 @@ $(NAME):$(CPPFILES:.cpp=.o)
 	$(CC) -c $< $(CCFLAGS)
 
 clean:
-	rm -f $(CPPFILES:.cpp=.o)
+	rm -f $(CPPFILES:.cpp=.o) $(NAME)

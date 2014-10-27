@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+	事件类型、参数声明
+*/
+
 // 事件类型
 enum EventType
 {
