@@ -52,6 +52,7 @@ void PServer::Timer()
 		curTime = TimeManager::getInstance()->GetTime();
 		if ((curTime - lastCheckTime) > TIMER_TIMEOUT)
 		{
+			lastCheckTime = curTime;
 			LogManager::getInstance()->Log("主定时器调用了！");
 		}
 		sleep(SLEEP_TIMEOUT);

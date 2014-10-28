@@ -154,8 +154,6 @@ void CPLog::refreshTime(bool isSimple)
 	memset(m_cstrTime, 0, sizeof(m_cstrTime));
 	//time_t curTime(time(NULL)); // 自己创建时间
 	time_t curTime = TimeManager::getInstance()->GetTime(); // 使用公共时间
-	if (curTime == 0)
-		curTime = time(NULL);
 	tm* ptm = localtime(&curTime);
 	if (isSimple)
 		snprintf(m_cstrTime, sizeof(m_cstrTime), "%d-%02d-%02d_%02d_%02d_%02d", (ptm->tm_year + 1900), (ptm->tm_mon + 1), (ptm->tm_mday), ptm->tm_hour, ptm->tm_min, ptm->tm_sec);
