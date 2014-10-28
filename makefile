@@ -30,7 +30,8 @@ CPPFILES=	main.cpp \
 			event_manager.cpp \
 			pevent.cpp \
 			db.cpp \
-			db_manager.cpp
+			db_manager.cpp \
+			server.cpp
 
 $(NAME):$(CPPFILES:.cpp=.o)
 	$(LINK) -o $(NAME) $(CPPFILES:.cpp=.o) $(LINKOPTS)

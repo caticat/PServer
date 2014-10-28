@@ -23,6 +23,7 @@
     <ClInclude Include="plog.h" />
     <ClInclude Include="plua.h" />
     <ClInclude Include="psignal.h" />
+    <ClInclude Include="server.h" />
     <ClInclude Include="time_manager.h" />
     <ClInclude Include="script_test.h" />
     <ClInclude Include="sql_manager.h" />
@@ -42,6 +43,7 @@
     <ClCompile Include="plua.cpp" />
     <ClCompile Include="luatest.cpp" />
     <ClCompile Include="psignal.cpp" />
+    <ClCompile Include="server.cpp" />
     <ClCompile Include="time_manager.cpp" />
     <ClCompile Include="sql_manager.cpp" />
     <ClCompile Include="swig_wrap.cpp" />

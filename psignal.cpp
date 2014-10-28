@@ -1,7 +1,10 @@
 #include "psignal.h"
 #include "log_manager.h"
+#include "server.h"
 
 #include <signal.h>
+
+extern PServer* g_pServer;
 
 void PSignal::Regist()
 {
@@ -36,6 +39,11 @@ void PSignal::Regist()
 void PSignal::SignalHandler(int signal)
 {
 	LogManager::getInstance()->Log("signal catched:%d", signal);
+
+	// TODO:PJ Êý¾Ý±£´æ
+
+	if (g_pServer != NULL)
+		g_pServer->Stop();
 }
 
 void PSignal::SignalHandlerWithCore(int signal)

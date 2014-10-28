@@ -1,28 +1,25 @@
 #include "type_define.h"
 #include "config.h"
+#include "server.h"
 
-#include <iostream>
-
-#include "plua.h"
+PServer* g_pServer;
 
 int main()
 {
 	if (!Config::getInstance()->load()) // 加载配置文件
+		return 1;
+	if (!Config::getInstance()->initDb()) // 连接数据库
+		return 2;
+	
+	// 服务器创建
+	PServer* pServer = new PServer;
+	if (pServer->Init()) // 初始化
 	{
-		std::cout << "出错了！" << std::endl;
-		return 0;
+		g_pServer = pServer;
+		pServer->Run(); // 启动线程
 	}
 
-	PLua* pLua = new PLua("test.lua");
-	std::string val = "";
-	pLua->GetVal(val, 1, "testnum");
-	std::cout << "testnum:" << val << std::endl;
-	pLua->GetVal(val, 2, "t", "t1");
-	std::cout << "t1:" << val << std::endl;
-	pLua->GetVal(val, 3, "t", "t2", "t3");
-	std::cout << "t3:" << val << std::endl;
-	pLua->GetVal(val, 4, "t", "t2", "t4", "t5");
-	std::cout << "t5:" << val << std::endl;
-
+	// 删除服务器对象
+	delete pServer;
 	return 0;
 }

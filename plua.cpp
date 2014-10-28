@@ -36,7 +36,8 @@ void PLua::GetVal(const char* key, std::string& value)
 {
 	lua_settop(m_pLua, 0); // 重置堆栈
 	lua_getglobal(m_pLua, key);
-	value = lua_tostring(m_pLua, -1);
+	if (lua_isstring(m_pLua,-1))
+		value = lua_tostring(m_pLua, -1);
 	lua_pop(m_pLua, 1);
 }
 
@@ -176,15 +177,22 @@ void PLua::GetValList(std::string& value, int argn, va_list vl, bool isFirstIn)
 	{
 		if (isFirstIn)
 		{
+			//std::cout << "步骤1" << std::endl;
 			isFirstIn = false;
 			key = va_arg(vl, char*);
 			GetVal(key.c_str(), value);
 		}
 		else
 		{
+			//std::cout << "步骤2" << std::endl;
 			key = va_arg(vl, char*);
 			lua_pushstring(m_pLua, key.c_str());
 			lua_gettable(m_pLua, -2);
+			if (!lua_isstring(m_pLua, -1))
+			{
+				LogManager::getInstance()->Err("%s is not a string", key.c_str());
+				return;
+			}
 			value = lua_tostring(m_pLua, -1);
 		}
 	}
@@ -192,19 +200,36 @@ void PLua::GetValList(std::string& value, int argn, va_list vl, bool isFirstIn)
 	{
 		if (isFirstIn)
 		{
+			//std::cout << "步骤3" << std::endl;
 			isFirstIn = false;
 			key = va_arg(vl, char*);
 			lua_getglobal(m_pLua, key.c_str());
+			if (!lua_istable(m_pLua, -1))
+			{
+				LogManager::getInstance()->Err("%s is not a table",key.c_str());
+				return;
+			}
 			key = va_arg(vl, char*);
 			lua_pushstring(m_pLua, key.c_str());
 			lua_gettable(m_pLua, -2);
+			if (!lua_isstring(m_pLua, -1))
+			{
+				LogManager::getInstance()->Err("%s is not a string", key.c_str());
+				return;
+			}
 			value = lua_tostring(m_pLua, -1);
 		}
 		else
 		{
+			//std::cout << "步骤4" << std::endl;
 			key = va_arg(vl, char*);
 			lua_pushstring(m_pLua, key.c_str());
 			lua_gettable(m_pLua, -2);
+			if (!lua_istable(m_pLua, -1))
+			{
+				LogManager::getInstance()->Err("%s is not a table", key.c_str());
+				return;
+			}
 			GetValList(value, --argn, vl, isFirstIn);
 		}
 	}
@@ -212,18 +237,30 @@ void PLua::GetValList(std::string& value, int argn, va_list vl, bool isFirstIn)
 	{
 		if (isFirstIn)
 		{
+			//std::cout << "步骤5" << std::endl;
 			isFirstIn = false;
 			key = va_arg(vl, char*);
 			lua_getglobal(m_pLua, key.c_str());
 			key = va_arg(vl, char*);
 			lua_pushstring(m_pLua, key.c_str());
 			lua_gettable(m_pLua, -2);
+			if (!lua_istable(m_pLua, -1))
+			{
+				LogManager::getInstance()->Err("%s is not a table", key.c_str());
+				return;
+			}
 			GetValList(value, argn - 2, vl, isFirstIn);
 		}
 		else
 		{
+			//std::cout << "步骤6" << std::endl;
 			lua_pushstring(m_pLua, key.c_str());
 			lua_gettable(m_pLua, -2);
+			if (!lua_istable(m_pLua, -1))
+			{
+				LogManager::getInstance()->Err("%s is not a table", key.c_str());
+				return;
+			}
 			GetValList(value, --argn, vl, isFirstIn);
 		}
 	}

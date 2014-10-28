@@ -18,6 +18,7 @@
     <ClInclude Include="pevent.h" />
     <ClInclude Include="db.h" />
     <ClInclude Include="db_manager.h" />
+    <ClInclude Include="server.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="pevent.cpp" />
     <ClCompile Include="db.cpp" />
     <ClCompile Include="db_manager.cpp" />
+    <ClCompile Include="server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />

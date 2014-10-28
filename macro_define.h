@@ -41,6 +41,7 @@ SINGTONE_GETINSTANCE(T)
 释放指针
 */
 #define RELEASE(p) {if(p!=NULL){delete p;p=NULL;}}
+#define RELEASE_ARR(p) {if(p!=NULL){delete[] p;p=NULL;}}
 
 /*
 数据库连接创建
