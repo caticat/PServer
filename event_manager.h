@@ -9,6 +9,7 @@
 #include <map>
 #include <list>
 #include <boost/function.hpp>
+#include <boost/thread/mutex.hpp>
 
 // 这种判断相等的方式可以使用，但是不同对象的方法也会被注册掉
 //typedef boost::function<void(const PEvent&)> eveFunc_t; // boost绑定事件
@@ -36,6 +37,7 @@ private:
 public:
 	void Push(EventType type, eveFunc_t eveFunc)
 	{
+		boost::mutex::scoped_lock _lock(m_mutex);
 		eveList_t* pList = GetList(type);
 		if (pList != NULL)
 		{
@@ -51,6 +53,7 @@ public:
 
 	void Pop(EventType type, eveFunc_t eveFunc = NULL) // 删除函数使用注意下面注释说明，很容易理解错了
 	{
+		boost::mutex::scoped_lock _lock(m_mutex);
 		eveMapIt_t mapIt = m_eveMap.begin();
 		for (; mapIt != m_eveMap.end(); ++mapIt)
 		{
@@ -76,6 +79,7 @@ public:
 
 	void Launch(const PEvent& eve)
 	{
+		boost::mutex::scoped_lock _lock(m_mutex);
 		eveList_t* pList = GetList(eve.type);
 		if (pList == NULL)
 			return;
@@ -96,4 +100,5 @@ private:
 
 private:
 	eveMap_t m_eveMap;
+	boost::mutex m_mutex;
 };

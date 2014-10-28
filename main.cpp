@@ -2,6 +2,8 @@
 #include "config.h"
 #include "server.h"
 
+#include "log_manager.h"
+
 PServer* g_pServer;
 
 int main()
@@ -11,6 +13,10 @@ int main()
 	if (!Config::getInstance()->initDb()) // 连接数据库
 		return 2;
 	
+	LogManager::getInstance()->Log("111");
+	LogManager::getInstance()->Warn("222");
+	LogManager::getInstance()->Err("333");
+
 	// 服务器创建
 	PServer* pServer = new PServer;
 	if (pServer->Init()) // 初始化

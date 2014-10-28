@@ -23,6 +23,7 @@ public:
 
 private:
 	log_t GetLog(int type);
+	void All(const char* type, const char* fmt, va_list vl);
 	void DoLog(int type, const char* fmt, va_list vl);
 
 private:

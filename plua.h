@@ -7,6 +7,7 @@
 #include <lua.hpp>
 #include "const_define.h"
 #include <string>
+#include <boost/thread/pthread/recursive_mutex.hpp>
 
 class PLua
 {
@@ -29,4 +30,5 @@ private:
 private:
 	lua_State* m_pLua;
 	char m_file[PATH_LEN];
+	boost::recursive_mutex m_mutex;
 };

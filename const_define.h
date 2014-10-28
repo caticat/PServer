@@ -24,7 +24,8 @@ enum LOG_DEF
 	LOG_NORMAL = 0, // 普通日志
 	LOG_WARN = 1, // 警告
 	LOG_ERROR = 2, // 错误
-	LOG_NUM = 3, // 日志类型数
+	LOG_ALL = 3, // 全部
+	LOG_NUM = 4, // 日志类型数
 };
 
 // 数据库连接

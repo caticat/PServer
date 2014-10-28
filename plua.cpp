@@ -34,6 +34,7 @@ void PLua::Call(const char* func, const char* fmt, ...)
 
 void PLua::GetVal(const char* key, std::string& value)
 {
+	boost::recursive_mutex::scoped_lock _lock(m_mutex);
 	lua_settop(m_pLua, 0); // 重置堆栈
 	lua_getglobal(m_pLua, key);
 	if (lua_isstring(m_pLua,-1))
@@ -44,6 +45,7 @@ void PLua::GetVal(const char* key, std::string& value)
 // 获取多层的数据 需要参数个数
 void PLua::GetVal(std::string& value, int argn, ...)
 {
+	boost::recursive_mutex::scoped_lock _lock(m_mutex);
 	lua_settop(m_pLua, 0); // 重置堆栈
 	va_list vl;
 	va_start(vl, argn);
@@ -53,6 +55,7 @@ void PLua::GetVal(std::string& value, int argn, ...)
 
 void PLua::Reload()
 {
+	boost::recursive_mutex::scoped_lock _lock(m_mutex);
 	if ((luaL_loadfile(m_pLua, m_file) != 0) || (lua_pcall(m_pLua, 0, 0, 0) != 0))
 		LogManager::getInstance()->Err("load file:%s failed, reason:%s", m_file, lua_tostring(m_pLua, -1));
 }
@@ -180,7 +183,10 @@ void PLua::GetValList(std::string& value, int argn, va_list vl, bool isFirstIn)
 			//std::cout << "步骤1" << std::endl;
 			isFirstIn = false;
 			key = va_arg(vl, char*);
-			GetVal(key.c_str(), value);
+			lua_getglobal(m_pLua, key.c_str());
+			if (lua_isstring(m_pLua, -1))
+				value = lua_tostring(m_pLua, -1);
+			lua_pop(m_pLua, 1);
 		}
 		else
 		{

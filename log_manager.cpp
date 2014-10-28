@@ -20,6 +20,11 @@ LogManager::LogManager()
 		m_logs[LOG_ERROR] = log_t(new CPLog);
 		m_logs[LOG_ERROR]->init(pConfig->logPath, "ERROR", ".txt", true, true);
 	}
+
+	{
+		m_logs[LOG_ALL] = log_t(new CPLog);
+		m_logs[LOG_ALL]->init(pConfig->logPath, "ALL", ".txt", true, false);
+	}
 }
 
 void LogManager::Log(const char* fmt, ...)
@@ -27,6 +32,7 @@ void LogManager::Log(const char* fmt, ...)
 	va_list vl;
 	va_start(vl, fmt);
 	DoLog(LOG_NORMAL, fmt, vl);
+	All("[NORMAL]", fmt, vl);
 	va_end(vl);
 }
 
@@ -35,6 +41,7 @@ void LogManager::Warn(const char* fmt, ...)
 	va_list vl;
 	va_start(vl, fmt);
 	DoLog(LOG_WARN, fmt, vl);
+	All("[WARN]", fmt, vl);
 	va_end(vl);
 }
 
@@ -43,6 +50,7 @@ void LogManager::Err(const char* fmt, ...)
 	va_list vl;
 	va_start(vl, fmt);
 	DoLog(LOG_ERROR, fmt, vl);
+	All("[ERROR]",fmt, vl);
 	va_end(vl);
 }
 
@@ -54,6 +62,13 @@ log_t LogManager::GetLog(int type)
 		return p;
 	}
 	return m_logs[type];
+}
+
+void LogManager::All(const char* type, const char* fmt, va_list vl)
+{
+	std::string typeFmt = type;
+	typeFmt += fmt;
+	DoLog(LOG_ALL, typeFmt.c_str(), vl);
 }
 
 void LogManager::DoLog(int type, const char* fmt, va_list vl)

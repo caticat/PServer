@@ -11,6 +11,7 @@ CCFLAGS+=-I/usr/include/mysql
 #LINKOPTS+=-L/usr/lib/mysql
 LINKOPTS+=-lmysqlclient
 LINKOPTS+=-lboost_system
+LINKOPTS+=-lboost_thread
 LINKOPTS+=-llua
 LINKOPTS+=-ldl #lua链接报错处理
 #LINKOPTS+=-fPIC #动态库编译
