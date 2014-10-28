@@ -1,6 +1,16 @@
 
 testnum = 10
 
+t = {
+	t1 = 20,
+	t2 = {
+		t3 = 30,
+		t4 = {
+			t5 = 40,
+		},
+	},
+}
+
 print("lua ²âÊÔÊä³ö")
 
 function test1()
