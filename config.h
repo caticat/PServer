@@ -28,6 +28,7 @@ public:
 public:
 	int qu; // 区号
 	DBConfig db; // 数据库配置
+	std::string port; // 服务器端口
 	int clientVersion; // 客户端需求版本
 	std::string scriptPath;
 	std::string logPath;

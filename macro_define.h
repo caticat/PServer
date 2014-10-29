@@ -44,6 +44,11 @@ SINGTONE_GETINSTANCE(T)
 #define RELEASE_ARR(p) {if(p!=NULL){delete[] p;p=NULL;}}
 
 /*
+指针校验
+*/
+#define CONFIRM(p) {if(p==NULL){return;}}
+
+/*
 数据库连接创建
 */
 #define GETDB \

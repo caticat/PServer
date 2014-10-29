@@ -14,7 +14,7 @@
 
 class TimeManager
 {
-	SINGTONE_GETINSTANCE(TimeManager)
+	SINGTONE_GETINSTANCE(TimeManager);
 private:
 	TimeManager() : m_curTime(0) {}
 public:

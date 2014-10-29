@@ -9,7 +9,7 @@
 
 class SqlManager
 {
-	SINGTONE_GETINSTANCE(SqlManager)
+	SINGTONE_GETINSTANCE(SqlManager);
 
 private:
 	SqlManager();

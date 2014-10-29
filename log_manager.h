@@ -11,7 +11,7 @@
 
 class LogManager
 {
-	SINGTONE_GETINSTANCE(LogManager)
+	SINGTONE_GETINSTANCE(LogManager);
 
 private:
 	LogManager();

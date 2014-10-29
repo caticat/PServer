@@ -24,6 +24,9 @@ bool Config::load()
 	pt->GetVal("clientVersion", clientVersionStr);
 	clientVersion = atoi(clientVersionStr.c_str());
 
+	// ¶Ë¿ÚºÅ
+	pt->GetVal("port", port);
+
 	// ÅäÖÃÂ·¾¶
 	pt->GetVal("scriptPath", scriptPath);
 	pt->GetVal("logPath", logPath);

@@ -5,14 +5,21 @@
 #include "time_manager.h"
 #include "log_manager.h"
 #include "psignal.h"
+#include "config.h"
+#include "net_message.h"
 
 bool PServer::Init()
 {
 	if (m_thread == NULL)
 		m_thread = new boost::thread*[THREAD_NUM];
-	m_thread[THREAD_PACKAGEDEAL] = new boost::thread(boost::bind(&PServer::PackageDeal, this));
+	m_thread[THREAD_PACKAGEDEAL] = new boost::thread(boost::bind(&PServer::PackDeal, this));
 	m_thread[THREAD_TIMER] = new boost::thread(boost::bind(&PServer::Timer, this));
 	m_thread[THREAD_SIGNAL] = new boost::thread(boost::bind(&PServer::SignalDeal, this));
+
+	if (!m_socketServer.Init(MAX_CONN))
+		return false;
+	if (!m_socketServer.Bind(NULL, Config::getInstance()->port.c_str()))
+		return false;
 
 	return true;
 }
@@ -21,8 +28,7 @@ void PServer::Run()
 {
 	while (IsRunning())
 	{
-		sleep(SLEEP_TIMEOUT); // TODO:PJ 这个要删掉，epoll会有的
-		//m_socketServer.DespatchEvent(1000);
+		m_socketServer.DespatchEvent(EPOLL_WAIT_TIMEOUT);
 	}
 	Join();
 }
@@ -36,10 +42,21 @@ void PServer::Join()
 	RELEASE_ARR(m_thread);
 }
 
-void PServer::PackageDeal()
+void PServer::PackDeal()
 {
 	// 网络消息处理
-	sleep(SLEEP_TIMEOUT); // TODO:PJ 这里后面要删掉
+	int sock;
+	NetMessage* pMsg;
+	while (IsRunning())
+	{
+		pMsg = m_socketServer.GetPackage(sock);
+		if (pMsg != NULL)
+		{
+			if (!m_despatch.Despatch(sock, pMsg))
+				LogManager::getInstance()->Err("NetMessage type error. sock:%d,type:%d",sock,pMsg->GetType());
+			delete pMsg;
+		}
+	}
 }
 
 void PServer::Timer()

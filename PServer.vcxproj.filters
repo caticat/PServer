@@ -19,6 +19,13 @@
     <ClInclude Include="db.h" />
     <ClInclude Include="db_manager.h" />
     <ClInclude Include="server.h" />
+    <ClInclude Include="net_server.h" />
+    <ClInclude Include="net_message.h" />
+    <ClInclude Include="hash_table.h" />
+    <ClInclude Include="net_packlist.h" />
+    <ClInclude Include="net_protocol.h" />
+    <ClInclude Include="net_despatch.h" />
+    <ClInclude Include="utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -37,6 +44,11 @@
     <ClCompile Include="db.cpp" />
     <ClCompile Include="db_manager.cpp" />
     <ClCompile Include="server.cpp" />
+    <ClCompile Include="net_server.cpp" />
+    <ClCompile Include="net_message.cpp" />
+    <ClCompile Include="net_packlist.cpp" />
+    <ClCompile Include="net_despatch.cpp" />
+    <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />

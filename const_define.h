@@ -9,6 +9,8 @@ enum CONST_DEF
 	PATH_LEN = 128, // 路径长度
 	TIMER_TIMEOUT = 10, // 定时器调用间隔
 	SLEEP_TIMEOUT = 1, // 睡眠时间间隔
+	MAX_CONN = 4096, // 服务器支持连接最大值
+	EPOLL_WAIT_TIMEOUT = 1000, // epoll_wait的超时时间
 };
 
 enum THREAD_DEF
@@ -26,6 +28,13 @@ enum LOG_DEF
 	LOG_ERROR = 2, // 错误
 	LOG_ALL = 3, // 全部
 	LOG_NUM = 4, // 日志类型数
+};
+
+enum NETMSG_DEF
+{
+	NETMSG_MAX_LEN = 0xFFFF, // 消息最长长度
+	NETMSG_HEAD_LEN = 4, // 协议头长度
+	NETMSG_TYPE_BEGIN = 2, // 类型起始位置
 };
 
 // 数据库连接

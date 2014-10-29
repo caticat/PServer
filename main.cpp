@@ -14,6 +14,7 @@ int main()
 		return 1;
 	if (!Config::getInstance()->initDb()) // 连接数据库
 		return 2;
+
 	// 服务器创建
 	PServer* pServer = new PServer;
 	if (pServer->Init()) // 初始化

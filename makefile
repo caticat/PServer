@@ -32,7 +32,13 @@ CPPFILES=	main.cpp \
 			pevent.cpp \
 			db.cpp \
 			db_manager.cpp \
-			server.cpp
+			utility.cpp \
+			server.cpp \
+			net_server.cpp \
+			net_packlist.cpp \
+			net_message.cpp \
+			net_packdeal.cpp \
+			net_despatch.cpp
 
 $(NAME):$(CPPFILES:.cpp=.o)
 	$(LINK) -o $(NAME) $(CPPFILES:.cpp=.o) $(LINKOPTS)

@@ -15,20 +15,27 @@
     <ClInclude Include="const_define.h" />
     <ClInclude Include="db.h" />
     <ClInclude Include="db_manager.h" />
+    <ClInclude Include="hash_table.h" />
     <ClInclude Include="log_manager.h" />
     <ClInclude Include="luatest.h" />
     <ClInclude Include="macro_define.h" />
     <ClInclude Include="event_manager.h" />
+    <ClInclude Include="net_despatch.h" />
+    <ClInclude Include="net_message.h" />
+    <ClInclude Include="net_packlist.h" />
+    <ClInclude Include="net_protocol.h" />
     <ClInclude Include="pevent.h" />
     <ClInclude Include="plog.h" />
     <ClInclude Include="plua.h" />
     <ClInclude Include="psignal.h" />
     <ClInclude Include="server.h" />
+    <ClInclude Include="net_server.h" />
     <ClInclude Include="time_manager.h" />
     <ClInclude Include="script_test.h" />
     <ClInclude Include="sql_manager.h" />
     <ClInclude Include="swig_wrap.h" />
     <ClInclude Include="type_define.h" />
+    <ClInclude Include="utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config.cpp" />
@@ -38,15 +45,20 @@
     <ClCompile Include="log_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="event_manager.cpp" />
+    <ClCompile Include="net_despatch.cpp" />
+    <ClCompile Include="net_message.cpp" />
+    <ClCompile Include="net_packlist.cpp" />
     <ClCompile Include="pevent.cpp" />
     <ClCompile Include="plog.cpp" />
     <ClCompile Include="plua.cpp" />
     <ClCompile Include="luatest.cpp" />
     <ClCompile Include="psignal.cpp" />
     <ClCompile Include="server.cpp" />
+    <ClCompile Include="net_server.cpp" />
     <ClCompile Include="time_manager.cpp" />
     <ClCompile Include="sql_manager.cpp" />
     <ClCompile Include="swig_wrap.cpp" />
+    <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />
