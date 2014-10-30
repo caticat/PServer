@@ -22,6 +22,7 @@
     <ClInclude Include="event_manager.h" />
     <ClInclude Include="net_despatch.h" />
     <ClInclude Include="net_message.h" />
+    <ClInclude Include="net_packdeal.h" />
     <ClInclude Include="net_packlist.h" />
     <ClInclude Include="net_protocol.h" />
     <ClInclude Include="pevent.h" />
@@ -47,6 +48,7 @@
     <ClCompile Include="event_manager.cpp" />
     <ClCompile Include="net_despatch.cpp" />
     <ClCompile Include="net_message.cpp" />
+    <ClCompile Include="net_packdeal.cpp" />
     <ClCompile Include="net_packlist.cpp" />
     <ClCompile Include="pevent.cpp" />
     <ClCompile Include="plog.cpp" />

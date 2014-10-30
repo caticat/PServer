@@ -1,1 +1,58 @@
-﻿  PServer.vcxproj -> D:\pan\project\ptest\c++\PServer\Debug\PServer.exe
+﻿  utility.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\utility.h(10): fatal error C1083: 无法打开包括文件: “sys/time.h”: No such file or directory
+  swig_wrap.cpp
+  sql_manager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\lib\boost\boost_1_49_0\boost\format\alt_sstream_impl.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  time_manager.cpp
+  net_server.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_server.h(11): fatal error C1083: 无法打开包括文件: “sys/epoll.h”: No such file or directory
+  server.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_server.h(11): fatal error C1083: 无法打开包括文件: “sys/epoll.h”: No such file or directory
+  psignal.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_server.h(11): fatal error C1083: 无法打开包括文件: “sys/epoll.h”: No such file or directory
+  luatest.cpp
+  plua.cpp
+d:\pan\lib\boost\boost_1_49_0\boost\thread\pthread\recursive_mutex.hpp(8): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory
+  plog.cpp
+d:\pan\project\ptest\c++\pserver\pserver\plog.cpp(50): error C2065: “F_OK”: 未声明的标识符
+d:\pan\project\ptest\c++\pserver\pserver\plog.cpp(50): error C3861: “access”:  找不到标识符
+d:\pan\project\ptest\c++\pserver\pserver\plog.cpp(159): error C3861: “snprintf”:  找不到标识符
+d:\pan\project\ptest\c++\pserver\pserver\plog.cpp(161): error C3861: “snprintf”:  找不到标识符
+  pevent.cpp
+  net_packlist.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_packlist.cpp(24): error C3861: “usleep”:  找不到标识符
+  net_packdeal.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_server.h(11): fatal error C1083: 无法打开包括文件: “sys/epoll.h”: No such file or directory
+  net_message.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_message.cpp(3): fatal error C1083: 无法打开包括文件: “sys/socket.h”: No such file or directory
+  net_despatch.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\utility.h(10): fatal error C1083: 无法打开包括文件: “sys/time.h”: No such file or directory
+  event_manager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  main.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\project\ptest\c++\pserver\pserver\net_server.h(11): fatal error C1083: 无法打开包括文件: “sys/epoll.h”: No such file or directory
+  log_manager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  db_manager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\lib\boost\boost_1_49_0\boost\format\alt_sstream_impl.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  db.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\lib\mysql-5.5.8\include\mysql.h(71): fatal error C1083: 无法打开包括文件: “mysql_version.h”: No such file or directory
+  正在生成代码...
+  正在编译...
+  const_define.cpp
+  config.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\pan\lib\boost\boost_1_49_0\boost\thread\pthread\recursive_mutex.hpp(8): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory
+  正在生成代码...

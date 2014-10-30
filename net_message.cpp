@@ -85,19 +85,23 @@ void NetMessage::operator delete(void* p)
 
 int NetMessage::Recv(int sock)
 {
+	using std::cout; using std::endl;
 	char *msg = (char*)m_msg.c_str() + m_recvLen;
 	int len = 0;
+	cout << "1 m_recvLen:" << m_recvLen << ",sock:" << sock << endl;
 	if (m_recvLen < NETMSG_HEAD_LEN)
 	{
 		len = recv(sock, msg, NETMSG_HEAD_LEN - m_recvLen, 0);
+		cout << "2 len:" << len << endl;
 		if (len > 0)
 			m_recvLen += len;
 		if (m_recvLen == NETMSG_HEAD_LEN)
 		{
-			if (GetLength() > 4096)
+			if (GetLength() > NETMSG_MAX_LEN)
 				return 0;
 			m_msg.resize(GetLength());
 		}
+		cout << "3 m_recvLen:" << m_recvLen << endl;
 		return len;
 	}
 	if (GetLength() < m_recvLen)
@@ -105,8 +109,10 @@ int NetMessage::Recv(int sock)
 	msg = (char*)m_msg.c_str() + m_recvLen;
 
 	len = recv(sock, msg, GetLength() - m_recvLen, 0);
+	cout << "4 len:" << len << endl;
 	if (len > 0)
 		m_recvLen += len;
+	cout << "5 m_recvLen:" << m_recvLen << endl;
 	return len;
 }
 

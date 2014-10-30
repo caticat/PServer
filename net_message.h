@@ -37,7 +37,7 @@ public:
 	void operator delete(void*);
 
 	template<typename T>
-	NetMessage& operator <<(T& val)
+	NetMessage& operator <<(T val)
 	{
 		Write(&val, sizeof(val));
 		return *this;
@@ -71,7 +71,7 @@ private:
 };
 
 template<>
-inline NetMessage& NetMessage::operator << <std::string>(std::string& val)
+inline NetMessage& NetMessage::operator << <std::string>(std::string val)
 {
 	uint16 length = (uint16)val.length();
 	Write(&length, sizeof(length));
@@ -81,7 +81,7 @@ inline NetMessage& NetMessage::operator << <std::string>(std::string& val)
 }
 
 template<>
-inline NetMessage& NetMessage::operator << <const char*> (const char*& val)
+inline NetMessage& NetMessage::operator << <const char*> (const char* val)
 {
 	uint16 length = strlen(val);
 	Write(&length, sizeof(length));
@@ -91,7 +91,7 @@ inline NetMessage& NetMessage::operator << <const char*> (const char*& val)
 }
 
 template<>
-inline NetMessage& NetMessage::operator << <char*> (char*& val)
+inline NetMessage& NetMessage::operator << <char*> (char* val)
 {
 	uint16 length = (uint16)strlen(val);
 	Write(&length, sizeof(length));
@@ -109,7 +109,7 @@ inline NetMessage& NetMessage::operator >> <std::string> (std::string& val)
 }
 
 template<>
-inline NetMessage& NetMessage::operator << <NetMessage> (NetMessage& val)
+inline NetMessage& NetMessage::operator << <NetMessage> (NetMessage val)
 {
 	m_msg.append(val.m_msg.substr(NETMSG_HEAD_LEN));
 	SetLength();

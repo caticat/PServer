@@ -26,6 +26,7 @@
     <ClInclude Include="net_protocol.h" />
     <ClInclude Include="net_despatch.h" />
     <ClInclude Include="utility.h" />
+    <ClInclude Include="net_packdeal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -49,6 +50,7 @@
     <ClCompile Include="net_packlist.cpp" />
     <ClCompile Include="net_despatch.cpp" />
     <ClCompile Include="utility.cpp" />
+    <ClCompile Include="net_packdeal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="build.sh" />

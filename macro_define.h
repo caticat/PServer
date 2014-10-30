@@ -59,3 +59,8 @@ if (pDb == NULL)\
 	LogManager::getInstance()->Err("获取连接数据库出错"); \
 	return;\
 }
+
+/*
+协议绑定
+*/
+#define PTL_BAND(PTL,FUNC) {PTL,boost::bind(&PackageDeal::FUNC,this,_1,_2)}
